@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 function UpdateTea() {
   const loadedTea = useLoaderData();
-  const { name, quantity, supplier, taste, price, details, photo } = loadedTea;
+  const {_id, name, quantity, supplier, taste, price, details, photo } = loadedTea;
   const handelUpdateTea = event => {
     event.preventDefault();
     const form = event.target;
@@ -14,31 +14,31 @@ function UpdateTea() {
     const price = form.price.value;
     const details = form.details.value;
     const photo = form.photo.value;
-    const newTea = { name, quantity, supplier, taste, price, details, photo };
-    // console.log(newTea)
-    fetch(`http://localhost:5000/teas`, {
-      method: "PUT",
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(newTea)
+    const updatedTea = { name, quantity, supplier, taste, price, details, photo };
+    console.log(updatedTea)
+
+    fetch(`http://localhost:5000/teas/${_id}`, {
+      method: "PATCH",
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(updatedTea)
     })
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
-            title: 'Update Success!',
+            title: 'Updated Success!',
             text: 'Do you want to continue',
             icon: 'success',
             confirmButtonText: 'Oky'
           })
-        }
+        }  
       })
+
   }
   return (
     <div>
-      <h2 className="text-center text-3xl font-bold py-7">Update Tea</h2>
+      <h2 className="text-center text-3xl font-bold py-7">Update Tea : {name}</h2>
       <div className="p-20">
         <form onSubmit={handelUpdateTea}>
           <div className="flex gap-3 mb-4">
