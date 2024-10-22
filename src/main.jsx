@@ -12,15 +12,17 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<App/>,
+    element: <App />,
+    loader: () => fetch('http://localhost:5000/teas')
   },
   {
     path: "/addTea",
     element:<AddTea/>
   },
   {
-    path: "updateTea",
-    element:<UpdateTea/>
+    path: "updateTea/:id",
+    element: <UpdateTea />,
+    loader: ({ params }) => fetch(`http://localhost:5000/teas/${params.id}`)
   }
 ]);
 

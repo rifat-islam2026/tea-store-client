@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 function AddTea() {
     const handelAddTea = event => {
@@ -22,6 +23,14 @@ function AddTea() {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                    title: 'Success!',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'Oky'
+                })
+                }  
             })
     }
   return (
