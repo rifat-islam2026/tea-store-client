@@ -13,7 +13,7 @@ function AddTea() {
         const photo = form.photo.value;
         const newTea = { name, quantity, supplier, taste, price, details, photo };
         // console.log(newTea)
-        fetch(`http://localhost:5000/teas`, {
+        fetch(`https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/teas`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

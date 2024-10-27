@@ -17,7 +17,7 @@ function SignUp() {
         console.log(result.user)
         const createdAt = result.user?.metadata?.creationTime;
         const users = { email, createdAt: createdAt };
-        fetch('http://localhost:5000/users', {
+        fetch('https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/users', {
           method: "POST",
           headers: {
             'content-type': 'application/json'

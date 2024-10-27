@@ -17,7 +17,7 @@ function UpdateTea() {
     const updatedTea = { name, quantity, supplier, taste, price, details, photo };
     console.log(updatedTea)
 
-    fetch(`http://localhost:5000/teas/${_id}`, {
+    fetch(`https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/teas/${_id}`, {
       method: "PATCH",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(updatedTea)

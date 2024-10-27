@@ -18,7 +18,7 @@ function User() {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/users/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -61,7 +61,7 @@ function User() {
                           <th>1</th>
                               <td>{user.email}</td>
                               <td>{user.createdAt}</td>
-                              <td>{user.lastLoggedAt}</td>
+                              <td>{user.lastSignInTime}</td>
                               <td><button
                                   onClick={()=>handelDelete(user._id)}
                                   className="btn"

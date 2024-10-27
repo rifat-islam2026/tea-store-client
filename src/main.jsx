@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    loader: () => fetch('http://localhost:5000/teas')
+    loader: () => fetch('https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/teas')
   },
   {
     path: "/addTea",
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   {
     path: "/updateTea/:id",
     element: <UpdateTea />,
-    loader: ({ params }) => fetch(`http://localhost:5000/teas/${params.id}`)
+    loader: ({ params }) => fetch(`https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/teas/${params.id}`)
   },
   {
     path: "/signUp",
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
   {
     path: "/user",
     element: <User />,
-    loader: () => fetch('http://localhost:5000/users')
+    loader: () => fetch('https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/users')
   }
 ]);
 

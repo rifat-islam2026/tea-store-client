@@ -16,7 +16,7 @@ function SignIn() {
       .then(result => {
         console.log(result.user)
         const users = { email, lastLoggedAt: result.user?.metadata?.lastSignInTime };
-        fetch('http://localhost:5000/users', {
+        fetch('https://tea-store-server-n7p6qptt4-rifats-projects-9101b4d5.vercel.app/users', {
           method: "PATCH",
           headers: {
             'content-type': 'application/json'
